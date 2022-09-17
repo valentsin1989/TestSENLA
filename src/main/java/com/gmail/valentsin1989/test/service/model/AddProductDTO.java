@@ -3,12 +3,12 @@ package com.gmail.valentsin1989.test.service.model;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
-public class AddOrderDTO {
-    @NotNull(message = "UserId cannot be empty.")
-    private long userId;
+public class AddProductDTO {
+    @NotNull(message = "Name cannot be empty.")
+    private String name;
     @NotNull(message = "Price cannot be empty.")
-    private List<Long> listProductId;
+    private double price;
+
 }

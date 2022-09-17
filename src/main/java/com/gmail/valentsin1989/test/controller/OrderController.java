@@ -22,11 +22,11 @@ public class OrderController {
 
     private final OrderService orderService;
 
-    @PostMapping(value = "/signin", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> addProduct(@Validated @RequestBody AddOrderDTO addOrderDTO) {
+    @PostMapping(value = "/order/add", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> addOrder(@Validated @RequestBody AddOrderDTO addOrderDTO) {
         AddedOrderDTO addedOrder = orderService.addOrder(addOrderDTO);
         if (addedOrder != null) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(addedOrder);
+            return ResponseEntity.status(HttpStatus.CREATED).body(addedOrder.getId());
         }
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
